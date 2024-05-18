@@ -21,3 +21,6 @@ const List = () => {
 };
 
 export default List;
+
+
+// skończyłem cwiczenie 1. Teraz będziemy robić cwiczenie 2
