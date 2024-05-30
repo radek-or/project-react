@@ -5,7 +5,11 @@ import Card from "./../Card/Card";
 import CardForm from "./../CardForm/CardForm";
 
 const Column = (props) => {
-  const cards = useSelector(state => state.cards.filter(card => card.columnId === props.id));
+  const searchString = useSelector(state => state.searchString.toLowerCase());
+  const cards = useSelector(state => state.cards.filter(card => 
+    card.columnId === props.id && 
+    card.title.toLowerCase().includes(searchString)
+  ));
 
   return (
     <div className={styles.column}>
