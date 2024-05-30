@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { addCard } from '../../redux/store';
 import styles from './CardForm.module.scss';
 import Button from './../Button/Button';
 import TextInput from './../TextInput/TextInput';
@@ -10,19 +11,16 @@ const CardForm = ({ columnId }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch({ 
-          type: 'ADD_CARD', 
-          payload: { title, columnId } 
-        });
+        dispatch(addCard({ title, columnId }));
         setTitle('');
-      };
+    };
 
-	return (
-        <form className={styles.CardForm} onSubmit={handleSubmit}>
-            <TextInput value={title} onChange={e => setTitle(e.target.value)} />
+    return (
+        <form className={styles.cardForm} onSubmit={handleSubmit}>
+            <TextInput value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter card title" />
             <Button>Add card</Button>
         </form>
-	);
+    );
 };
 
 export default CardForm;
