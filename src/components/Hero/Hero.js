@@ -1,12 +1,14 @@
+import React from 'react';
+import PageTitle from '../PageTitle/PageTitle';
 import styles from './Hero.module.scss';
 
 const Hero = () => {
   return (
     <div className={styles.hero}>
-      <h1 className={styles.title}>My first React App</h1>
-      <p className={styles.subtitle}>A simple to-do app, with lists, columns and card</p>
+      <PageTitle>Welcome to the To-Do App</PageTitle>
+      <p className={styles.subtitle}>You can add, edit, and remove tasks.</p>
     </div>
   );
 };
 
-  export default Hero;
+export default Hero;
