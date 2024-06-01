@@ -1,0 +1,32 @@
+@use "sass:math";
+@import '../../styles/settings.scss';
+
+.listForm {
+  margin-top: $base-size * 2;
+  display: flex;
+  justify-content: center; // Wyśrodkowanie elementów
+  align-items: center;
+
+  .formField {
+    display: flex;
+    align-items: center;
+    margin-right: $base-size / 2; // Zmniejszony margines
+
+    label {
+      margin-right: $base-size / 2; // Margines po prawej stronie etykiety
+      white-space: nowrap;
+    }
+
+    input {
+      padding: $base-size;
+      width: 200px;
+      border: 1px solid $color-dark;
+      border-radius: $radius;
+      box-shadow: 0 math.div($base-size, 4) 0 rgba(0,0,0,0.1);
+    }
+  }
+
+  button {
+    margin-left: $base-size / 2; // Dodanie marginesu po lewej stronie przycisku
+  }
+}
