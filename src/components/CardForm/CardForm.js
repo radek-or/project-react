@@ -17,7 +17,7 @@ const CardForm = ({ columnId }) => {
 
     return (
         <form className={styles.cardForm} onSubmit={handleSubmit}>
-            <TextInput value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter card title" />
+            <TextInput value={title} onChange={e => setTitle(e.target.value)} />
             <Button>Add card</Button>
         </form>
     );

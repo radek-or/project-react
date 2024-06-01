@@ -16,38 +16,72 @@ const initialState = {
       id: '1',
       listId: '1',
       title: 'Books',
-      icon: 'book'
+      icon: 'book',
     },
     {
       id: '2',
       listId: '1',
       title: 'Movies',
-      icon: 'film'
+      icon: 'film',
     },
     {
       id: '3',
       listId: '1',
       title: 'Games',
-      icon: 'gamepad'
+      icon: 'gamepad',
     },
     {
       id: '4',
       listId: '2',
       title: 'Songs',
-      icon: 'music'
+      icon: 'music',
     }
   ],
   cards: [
-    { id: '1', columnId: '1', title: 'This is Going to Hurt' },
-    { id: '2', columnId: '1', title: 'Interpreter of Maladies' },
-    { id: '3', columnId: '2', title: 'Harry Potter' },
-    { id: '4', columnId: '2', title: 'Star Wars' },
-    { id: '5', columnId: '3', title: 'The Witcher' },
-    { id: '6', columnId: '3', title: 'Skyrim' },
-    { id: '7', columnId: '4', title: 'Bohemian Rhapsody' },
-    { id: '8', columnId: '4', title: 'Stairway to Heaven' }
+    {
+      id: '1',
+      columnId: '1',
+      title: 'This is Going to Hurt',
+      isFavorite: false
+    },
+    {
+      id: '2',
+      columnId: '1',
+      title: 'Interpreter of Maladies',
+      isFavorite: false
+    },
+    {
+      id: '3',
+      columnId: '2',
+      title: 'Harry Potter',
+      isFavorite: false
+    },
+    {
+      id: '4',
+      columnId: '2',
+      title: 'Star Wars',
+      isFavorite: false
+    },
+    {
+      id: '5',
+      columnId: '3',
+      title: 'The Witcher',
+      isFavorite: false
+    },
+    {
+      id: '6',
+      columnId: '3',
+      title: 'Skyrim',
+      isFavorite: false
+    },
+    {
+      id: '7',
+      columnId: '4',
+      title: 'Bohemian Rhapsody',
+      isFavorite: false
+    }
   ],
-  searchString: ''
+  searchString: '',
 };
 
 export default initialState;
