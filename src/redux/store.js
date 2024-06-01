@@ -1,19 +1,30 @@
 import { createStore } from 'redux';
+import { createSelector } from 'reselect';
 import initialState from './initialState';
 import shortid from 'shortid';
-import strContains from '../utils/strContains';
 
 // selectors
-export const getFilteredCards = ({ cards, searchString }, columnId) => cards
-  .filter(card => card.columnId === columnId && strContains(card.title, searchString));
+const getCards = (state) => state.cards;
+const getColumnId = (state, columnId) => columnId;
+const getSearchString = (state) => state.searchString;
+const getColumns = (state) => state.columns;
 
-export const getAllColumns = (state) => state.columns;
+export const getFilteredCards = createSelector(
+  [getCards, getColumnId, getSearchString],
+  (cards, columnId, searchString) => cards.filter(card => card.columnId === columnId && card.title.toLowerCase().includes(searchString.toLowerCase()))
+);
+
+export const getAllColumns = createSelector(
+  [getColumns],
+  (columns) => columns.map(column => ({ ...column }))
+);
 
 // action creators
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 export const addCard = payload => ({ type: 'ADD_CARD', payload });
 export const updateSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
 
+// reducer
 const reducer = (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_COLUMN':
@@ -50,7 +61,6 @@ const reducer = (state = initialState, action) => {
 
 const store = createStore(
   reducer,
-  initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
