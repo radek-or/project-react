@@ -1,6 +1,18 @@
 @import '../../styles/settings.scss';
 
+.cardForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $base-size;
 
-.fa {
-    color: $color-warning;
+  .input {
+    padding: $base-size;
+    border: 1px solid $color-dark;
+    border-radius: $radius;
+    margin-right: $base-size;
+    font-size: $font-text;
+    flex-grow: 1;
+  }
+
 }

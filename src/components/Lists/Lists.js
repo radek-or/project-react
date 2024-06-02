@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { getAllLists } from '../../redux/listsRedux';
 import { Link } from 'react-router-dom';
-import { getAllLists } from '../../redux/store';
 import styles from './Lists.module.scss';
 
 const Lists = () => {
@@ -9,11 +9,10 @@ const Lists = () => {
 
   return (
     <section className={styles.lists}>
-      <h2 className={styles.heading}>Browse lists</h2>
       {lists.map(list => (
-        <Link key={list.id} to={`/list/${list.id}`} className={styles.listLink}>
-          <h3>{list.title}</h3>
-          <p>{list.description}</p>
+        <Link to={`/list/${list.id}`} key={list.id} className={styles.listLink}>
+          <h2 className={styles.title}>{list.title}</h2>
+          <p className={styles.description}>{list.description}</p>
         </Link>
       ))}
     </section>

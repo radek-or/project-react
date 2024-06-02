@@ -1,15 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { getFavoriteCards } from '../../redux/cardsRedux'; // Import z właściwego pliku
 import Card from '../Card/Card';
-import { getFavoriteCards } from '../../redux/store';
 import styles from './Favorite.module.scss';
 
 const Favorite = () => {
   const favoriteCards = useSelector(getFavoriteCards);
-  console.log('Rendering Favorite component with cards:', favoriteCards);
 
   if (favoriteCards.length === 0) {
-    return <p className={styles.noCards}>No cards...</p>;
+    return <p className={styles.noCards}>No favorite cards...</p>;
   }
 
   return (

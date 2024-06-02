@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { addColumn } from '../../redux/columnsRedux';
 import styles from './ColumnForm.module.scss';
-import Button from './../Button/Button';
-import TextInput from './../TextInput/TextInput';
-import { addColumn } from '../../redux/store';
+import Button from '../Button/Button';
 
 const ColumnForm = ({ listId }) => {
   const [title, setTitle] = useState('');
@@ -20,14 +19,28 @@ const ColumnForm = ({ listId }) => {
   return (
     <form className={styles.columnForm} onSubmit={handleSubmit}>
       <div className={styles.formField}>
-        <label>Title:</label>
-        <TextInput value={title} onChange={(e) => setTitle(e.target.value)} />
+        <label htmlFor="title">Title</label>
+        <input
+          id="title"
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </div>
       <div className={styles.formField}>
-        <label>Icon:</label>
-        <TextInput value={icon} onChange={(e) => setIcon(e.target.value)} />
+        <label htmlFor="icon">Icon</label>
+        <input
+          id="icon"
+          type="text"
+          placeholder="Icon"
+          value={icon}
+          onChange={(e) => setIcon(e.target.value)}
+        />
       </div>
-      <Button>Add column</Button>
+      <div className={styles.buttonWrapper}>
+        <Button>Add column</Button>
+      </div>
     </form>
   );
 };

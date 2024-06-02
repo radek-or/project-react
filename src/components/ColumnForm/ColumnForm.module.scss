@@ -17,9 +17,17 @@
       margin-right: 10px;
       display: block; /* Ustawienie etykiety jako blokowej */
     }
+
+    input {
+      width: 200px; /* Szerokość inputów taka jak wcześniej */
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      height: 40px;  // ensure height is the same for button and input
+    }
   }
 
-  button {
+  .buttonWrapper {
     margin-left: 10px; /* Odstęp między ostatnim polem a przyciskiem */
   }
 
@@ -32,9 +40,8 @@
       margin-bottom: 10px; /* Odstęp między polami formularza w widoku mobilnym */
     }
 
-    button {
+    .buttonWrapper {
       margin-left: 0;
     }
   }
 }
-

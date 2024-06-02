@@ -1,6 +1,19 @@
 @import '../../styles/settings.scss';
 
 .searchForm {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: $base-size;
+  
+  .input {
+    padding: $base-size;
+    border: 1px solid $color-dark;
+    border-radius: $radius;
+    margin-right: $base-size;
+    font-size: 1$font-text;
+
+  }
+
+
 }

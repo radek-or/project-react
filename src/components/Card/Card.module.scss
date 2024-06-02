@@ -12,16 +12,21 @@
   font-weight: bold;
 }
 
-.favoriteButton {
+.favoriteButton,
+.removeButton {
   background: none;
   border: none;
   cursor: pointer;
 
-  &.isFavorite {
-    color: $color-warning;
-  }
-
   i {
     font-size: 20px;
   }
+}
+
+.favoriteButton.isFavorite {
+  color: $color-warning;
+}
+
+.removeButton {
+  color: $color-dark;
 }

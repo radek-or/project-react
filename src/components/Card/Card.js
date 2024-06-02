@@ -1,28 +1,31 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { toggleCardFavorite, removeCard } from '../../redux/cardsRedux';
 import clsx from 'clsx';
 import styles from './Card.module.scss';
-import { toggleCardFavorite } from '../../redux/store';
 
 const Card = ({ id, title, isFavorite }) => {
   const dispatch = useDispatch();
 
-  const handleToggleFavorite = () => {
-    console.log('Toggling favorite for card:', id);
+  const handleFavoriteToggle = () => {
     dispatch(toggleCardFavorite(id));
   };
 
-  console.log('Rendering Card component with props:', { id, title, isFavorite });
+  const handleRemoveCard = () => {
+    dispatch(removeCard(id));
+  };
 
   return (
     <li className={styles.card}>
-      <span>{title}</span>
-      <button 
-        className={clsx(styles.favoriteButton, { [styles.isFavorite]: isFavorite })}
-        onClick={handleToggleFavorite}
-      >
-        <i className="fa fa-star-o" />
-      </button>
+      <span className={styles.cardTitle}>{title}</span>
+      <div>
+        <button className={clsx(styles.favoriteButton, isFavorite && styles.isFavorite)} onClick={handleFavoriteToggle}>
+          <i className="fa fa-star-o" />
+        </button>
+        <button className={styles.removeButton} onClick={handleRemoveCard}>
+          <i className="fa fa-trash" />
+        </button>
+      </div>
     </li>
   );
 };
